@@ -19,6 +19,7 @@
         state: present
 
     - name: Install docker Python library
+      become: true
       pip:
         name: docker
 
