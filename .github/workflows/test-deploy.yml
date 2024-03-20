@@ -1,0 +1,27 @@
+name: Docker
+
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Git
+        uses: actions/checkout@v4
+        with:
+          repository: 'Hannes221/bellfood_start_2024'
+      - name: Set up SSH agent
+        uses: webfactory/ssh-agent@v0.5.3
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+      - name: Deploy
+        run: make deploy-ci
