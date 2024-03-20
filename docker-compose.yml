@@ -1,0 +1,20 @@
+version: '3'
+services:
+  backend:
+    image: python:3.11
+    restart: always
+    build:
+      context: .
+      dockerfile: ./backend/Dockerfile
+    volumes:
+      - .:/app/backend
+    command:
+      [
+        'uvicorn',
+        '--host',
+        '0.0.0.0',
+        '--port',
+        '8000',
+        'backend.src.app:app',
+        '--reload',
+      ]
