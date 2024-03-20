@@ -10,7 +10,7 @@
   tasks:
     - git:
         repo: '{{ repo_folder }}'
-        dest: '{{ live_folder }}'
+        dest: '{{ backend_src }}'
         update: yes
 
     - name: Tear down existing services
