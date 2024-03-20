@@ -6,7 +6,7 @@
   vars:
     repo_folder: git@github.com:Hannes221/bellfood_start_2024.git
     project_folder: bellfood/
-    backend_src: bellfood/backend
+    backend_src: bellfood/backend/
   tasks:
     - git:
         repo: '{{ repo_folder }}'
