@@ -6,12 +6,22 @@
   vars:
     repo_folder: git@github.com:Hannes221/bellfood_start_2024.git
     project_folder: bellfood/
-    backend_src: bellfood/backend
+    backend_src: bellfood/backend/
   tasks:
     - git:
         repo: '{{ repo_folder }}'
-        dest: '{{ live_folder }}'
+        dest: '{{ backend_src }}'
         update: yes
+    - name: Install pip
+      become: true
+      apt:
+        name: python3-pip
+        state: present
+
+    - name: Install docker Python library
+      become: true
+      pip:
+        name: docker
 
     - name: Tear down existing services
       community.docker.docker_compose:
