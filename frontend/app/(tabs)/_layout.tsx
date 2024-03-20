@@ -29,12 +29,12 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Tab One',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          title: 'Belly Chat',
+          tabBarIcon: ({ color }) => <TabBarIcon name="comment" color={color} />,
           headerRight: () => (
             <Link href="/modal" asChild>
               <Pressable>
-                {({ pressed }) => (
+                {({ pressed }: any) => (
                   <FontAwesome
                     name="info-circle"
                     size={25}
