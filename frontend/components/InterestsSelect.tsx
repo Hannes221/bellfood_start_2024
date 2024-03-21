@@ -37,10 +37,24 @@ const SelectInterests = () => {
   ];
 
   async function submitInterests(selectedOptions: string[]) {
+    const body = {
+      email: 'example@email.com',
+      food: selectedOptions.includes('Food'),
+      languages: selectedOptions.includes('Languages'),
+      travel: selectedOptions.includes('Travel'),
+      technology: selectedOptions.includes('Technology'),
+      music: selectedOptions.includes('Music'),
+      art: selectedOptions.includes('Art'),
+      sports: selectedOptions.includes('Sports'),
+      origin: selectedOptions.includes('Origin'),
+      health: selectedOptions.includes('Health'),
+      freetime: selectedOptions.includes('Freetime'),
+      culture: selectedOptions.includes('Culture'),
+      nature: selectedOptions.includes('Nature'),
+    };
+
     try {
-      const response = await axios.post('http://localhost:8000/user', {
-        interests: selectedOptions,
-      });
+      const response = await axios.post('http://localhost:8000/user', body);
       console.log('Interests submitted:', response.data);
       setSelectedOptions([]);
     } catch (error) {
