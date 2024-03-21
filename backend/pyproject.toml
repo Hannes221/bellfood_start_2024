@@ -11,6 +11,7 @@ fastapi = "^0.110.0"
 ansible = "^9.3.0"
 uvicorn = "^0.29.0"
 predictionguard = "^1.9.2"
+redis = "^5.0.3"
 
 
 [build-system]
