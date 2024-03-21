@@ -6,6 +6,7 @@ class User(Base):
     __tablename__ = "users"
 
     id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True, index=True)
+    name: Mapped[str] = mapped_column()
     food: Mapped[bool] = mapped_column()
     languages: Mapped[bool] = mapped_column()
     travel: Mapped[bool] = mapped_column()
