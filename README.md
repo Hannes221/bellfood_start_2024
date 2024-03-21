@@ -32,9 +32,13 @@ Frontend
 The app is containerized with Docker. To run the app, you need to have Docker installed on your machine.
 
 1. Clone the repository
-2. Fill in the credentials for Predictionguard LLM and Chatengine IO Api in the `.env` file in the backend directory
-3. Run `docker-compose up` in the backend directory
-4. Run `npx expo` in the frontend directory
+2. Copy the .env.example file in the frontend and backend directories to .env `cp .env.example .env`
+    - Fill in the credentials for Predictionguard LLM and Chatengine IO Api in the `.env` file of the backend directory
+    - Fill in the Chatengine IO Project ID in the `.env` file of the frontend directory
+3. Run `npx expo` in the frontend directory
+4. Potentially run `yarn install` in the frontend directory
+4. Run `poetry install` in the backend directory
+5. Or simply run `docker-compose up` in the root directory
 
 ## Backend Endpoints
 - `/message` - Chat with the AI via a POST request in [llm.py](backend/src/routers/llm.py)
