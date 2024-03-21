@@ -6,6 +6,9 @@ import React, { useEffect, useState } from 'react';
 import { Modal, View, Text, TouchableOpacity, Button, StyleSheet } from 'react-native';
 import * as SplashScreen from 'expo-splash-screen';
 
+import SelectLanguage from '../components/LanguageSelect';
+import SelectInterests from '../components/InterestsSelect';
+
 import { useColorScheme } from '@/components/useColorScheme';
 
 export const unstable_settings = {
@@ -53,8 +56,9 @@ export default function RootLayout() {
       
         <Modal>
           <View style={styles.container}>
+          <SelectLanguage />
           {/* Language selection modal content here */}
-          <Button title="Next" onPress={() => setOnboardingState(1)} />
+          <Button title="➡️"  onPress={() => setOnboardingState(1)} />
           </View>
         </Modal>
     );
@@ -65,8 +69,9 @@ export default function RootLayout() {
     return (
       <Modal>
         <View style={styles.container}>
+          <SelectInterests />
           {/* Interest selection modal content here */}
-          <Button title="Finish" onPress={() => setOnboardingState(null)} />
+          <Button title="Finish ✅" onPress={() => setOnboardingState(null)} />
         </View>
       </Modal>
     );
@@ -89,7 +94,6 @@ function RootLayoutNav() {
     </ThemeProvider>
   );
 }
-
 
 const styles = StyleSheet.create({
   container: {
