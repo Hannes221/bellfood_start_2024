@@ -6,7 +6,8 @@ router = APIRouter()
 
 class MessageBody(BaseModel):
     input_str: str
+    user_id: str
 
 @router.post("/message")
 def post_message(body: MessageBody):
-    return get_response(body.input_str)
+    return get_response(body.input_str, body.user_id)
