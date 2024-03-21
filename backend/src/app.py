@@ -5,7 +5,7 @@ from backend.src.routers import llm, interest
 app = FastAPI()
 
 origins = [
-    "http://localhost:8082"
+    "http://localhost:8081"
 ]
 
 app.include_router(llm.router)
