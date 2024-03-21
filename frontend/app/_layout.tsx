@@ -5,9 +5,12 @@ import { Stack } from 'expo-router';
 import React, { useEffect, useState } from 'react';
 import { Modal, View, Text, TouchableOpacity, Button, StyleSheet } from 'react-native';
 import * as SplashScreen from 'expo-splash-screen';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import SelectLanguage from '../components/LanguageSelect';
 import SelectInterests from '../components/InterestsSelect';
+
+import EmailInput from '@/components/EmailInput';
 
 import { useColorScheme } from '@/components/useColorScheme';
 
@@ -33,6 +36,8 @@ export default function RootLayout() {
     ...FontAwesome.font,
   });
 
+  const [email, setEmail] = useState('');
+
   const [onboardingState, setOnboardingState] = useState(0);
 
   // Expo Router uses Error Boundaries to catch errors in the navigation tree.
@@ -50,14 +55,28 @@ export default function RootLayout() {
     return null;
   }
 
-  // Render the first onboarding modal if onboardingState is 0
+  const _storeData = async (emailValue: string) => {
+    try {
+      await AsyncStorage.setItem(
+        '@MySuperStore:key', emailValue);
+    } catch (error) {
+      console.error('Error saving data:', error);
+    }
+  };
+
+  async function sendData() {
+    const email = await AsyncStorage.getItem('@MySuperStore');
+    setOnboardingState(1);
+    _storeData(email!);
+  }
+
   if (onboardingState === 0) {
     return (
       <Modal>
         <View style={styles.container}>
-          
+          <EmailInput />
           {/* Language selection modal content here */}
-          <Button title="Email" onPress={() => setOnboardingState(1)} />
+          <Button title="Submit" onPress={() => sendData()} />
         </View>
       </Modal>
     );
@@ -121,5 +140,13 @@ const styles = StyleSheet.create({
     marginVertical: 30,
     height: 1,
     width: '80%',
+  },
+  input: {
+    width: '80%', // You can adjust the width as needed
+    borderColor: 'gray', // Border color
+    borderWidth: 1, // Border width
+    padding: 10, // Padding for the input field
+    marginBottom: 10, // Margin bottom to separate the input from the button
+    borderRadius: 15, // Border radius to match the button
   },
 });

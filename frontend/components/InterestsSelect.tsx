@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, TextInput } from 'react-native';
 import axios from 'axios';
 
 interface UserBase {
@@ -38,7 +38,7 @@ const SelectInterests = () => {
 
   async function submitInterests(selectedOptions: string[]) {
     const body = {
-      email: 'example@email.com',
+      email: ('email'),
       food: selectedOptions.includes('Food'),
       languages: selectedOptions.includes('Languages'),
       travel: selectedOptions.includes('Travel'),
@@ -140,6 +140,13 @@ const styles = StyleSheet.create({
   selectedOptionText: {
     fontSize: 18,
     marginTop: 20,
+  },
+  input: {
+    width: '80%',
+    borderColor: 'gray',
+    borderWidth: 1, 
+    padding: 10, 
+    marginBottom: 10,
   },
 });
 
