@@ -1,9 +1,21 @@
 import FontAwesome from '@expo/vector-icons/FontAwesome';
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
+import {
+  DarkTheme,
+  DefaultTheme,
+  ThemeProvider,
+} from '@react-navigation/native';
 import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
 import React, { useEffect, useState } from 'react';
-import { Modal, View, Text, TouchableOpacity, Button, StyleSheet } from 'react-native';
+import {
+  Modal,
+  View,
+  Text,
+  TouchableOpacity,
+  Button,
+  StyleSheet,
+  TextInput,
+} from 'react-native';
 import * as SplashScreen from 'expo-splash-screen';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
@@ -30,15 +42,14 @@ export {
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
 
-export default function RootLayout() {
+export default function RootLayout({ onChangeText, value }: any) {
   const [loaded, error] = useFonts({
     SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
     ...FontAwesome.font,
   });
 
-  const [email, setEmail] = useState('');
-
   const [onboardingState, setOnboardingState] = useState(0);
+  const [email, setEmail] = useState('');
 
   // Expo Router uses Error Boundaries to catch errors in the navigation tree.
   useEffect(() => {
@@ -57,26 +68,32 @@ export default function RootLayout() {
 
   const _storeData = async (emailValue: string) => {
     try {
-      await AsyncStorage.setItem(
-        '@MySuperStore:key', emailValue);
+      await AsyncStorage.setItem('@MySuperStore:key', emailValue);
     } catch (error) {
       console.error('Error saving data:', error);
     }
   };
 
   async function sendData() {
-    const email = await AsyncStorage.getItem('@MySuperStore');
     setOnboardingState(1);
-    _storeData(email!);
+    _storeData(email);
   }
 
   if (onboardingState === 0) {
     return (
       <Modal>
         <View style={styles.container}>
-          <EmailInput />
+          <>
+            <Text>Email</Text>
+            <TextInput
+              style={styles.input}
+              onChangeText={(text) => setEmail(text)}
+              value={email}
+              keyboardType='email-address'
+            />
+          </>
           {/* Language selection modal content here */}
-          <Button title="Submit" onPress={() => sendData()} />
+          <Button title='Submit' onPress={() => sendData()} />
         </View>
       </Modal>
     );
@@ -89,7 +106,7 @@ export default function RootLayout() {
         <View style={styles.container}>
           <SelectLanguage />
           {/* Language selection modal content here */}
-          <Button title="➡️" onPress={() => setOnboardingState(2)} />
+          <Button title='➡️' onPress={() => setOnboardingState(2)} />
         </View>
       </Modal>
     );
@@ -101,7 +118,7 @@ export default function RootLayout() {
         <View style={styles.container}>
           <SelectInterests />
           {/* Interest selection modal content here */}
-          <Button title="Finish ✅" onPress={() => setOnboardingState(null)} />
+          <Button title='Finish ✅' onPress={() => setOnboardingState(null)} />
         </View>
       </Modal>
     );
@@ -116,10 +133,10 @@ function RootLayoutNav() {
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
       <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
-        <Stack.Screen name="onboarding1" options={{ presentation: 'modal' }} />
-        <Stack.Screen name="onboarding2" options={{ presentation: 'modal' }} />
+        <Stack.Screen name='(tabs)' options={{ headerShown: false }} />
+        <Stack.Screen name='modal' options={{ presentation: 'modal' }} />
+        <Stack.Screen name='onboarding1' options={{ presentation: 'modal' }} />
+        <Stack.Screen name='onboarding2' options={{ presentation: 'modal' }} />
       </Stack>
     </ThemeProvider>
   );

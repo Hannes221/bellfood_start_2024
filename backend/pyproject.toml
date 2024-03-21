@@ -17,6 +17,7 @@ pydantic-settings = "^2.2.1"
 psycopg2 = "^2.9.9"
 uuid = "^1.30"
 requests = "^2.31.0"
+faker = "^24.3.0"
 
 
 [build-system]

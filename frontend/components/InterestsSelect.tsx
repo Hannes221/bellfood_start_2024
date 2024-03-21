@@ -1,6 +1,13 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, TextInput } from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+  TextInput,
+} from 'react-native';
 import axios from 'axios';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 interface UserBase {
   email: string;
@@ -37,8 +44,9 @@ const SelectInterests = () => {
   ];
 
   async function submitInterests(selectedOptions: string[]) {
+    const email = await AsyncStorage.getItem('@MySuperStore:key');
     const body = {
-      email: ('email'),
+      email: email,
       food: selectedOptions.includes('Food'),
       languages: selectedOptions.includes('Languages'),
       travel: selectedOptions.includes('Travel'),
@@ -144,8 +152,8 @@ const styles = StyleSheet.create({
   input: {
     width: '80%',
     borderColor: 'gray',
-    borderWidth: 1, 
-    padding: 10, 
+    borderWidth: 1,
+    padding: 10,
     marginBottom: 10,
   },
 });
