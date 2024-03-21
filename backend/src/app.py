@@ -1,8 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from backend.src.routers import llm, interest
+from backend.src.routers import llm, interest, matchmaking
 from backend.src.utils.insert_mock_data import populate_db
-from backend.src.database.database import SessionLocal
 
 app = FastAPI()
 
@@ -12,6 +11,7 @@ origins = [
 
 app.include_router(llm.router)
 app.include_router(interest.router)
+app.include_router(matchmaking.router)
 
 
 app.add_middleware(

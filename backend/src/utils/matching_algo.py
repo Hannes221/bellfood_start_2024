@@ -1,5 +1,6 @@
 from sqlalchemy.orm import Session
 from typing import List
+from backend.src.database.database import engine
 
 from backend.src.database.models import User
 
@@ -12,10 +13,11 @@ def calculate_match(user: User, criteria: User) -> bool:
 
     return match_count
 
-def get_best_matches(session: Session, criteria: User, limit: int = 10) -> List[User]:
-    users = session.query(User).all()
-    users_with_scores = [{"user": user, "score": calculate_match(user, criteria)} for user in users]
-    users_with_scores.sort(key=lambda x: x['score'], reverse=True)
-    filtered_users = [x['user'] for x in users_with_scores if x['score'] > 0][:limit]
+def get_best_matches(criteria: User, limit: int = 10) -> List[User]:
+    with Session(engine) as session:
+        users = session.query(User).all()
+        users_with_scores = [{"user": user, "score": calculate_match(user, criteria)} for user in users]
+        users_with_scores.sort(key=lambda x: x['score'], reverse=True)
+        filtered_users = [x['user'] for x in users_with_scores if x['score'] > 0][:limit]
 
-    return filtered_users
+        return filtered_users
