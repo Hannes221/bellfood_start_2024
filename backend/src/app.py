@@ -6,7 +6,7 @@ from backend.src.utils.insert_mock_data import populate_db
 app = FastAPI()
 
 origins = [
-    "http://localhost:8082"
+    "http://localhost:8081"
 ]
 
 app.include_router(llm.router)
