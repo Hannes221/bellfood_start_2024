@@ -8,6 +8,8 @@ services:
       dockerfile: ./backend/Dockerfile
     volumes:
       - .:/app/backend
+    ports:
+      - '8000:8000'
     command:
       [
         'uvicorn',
