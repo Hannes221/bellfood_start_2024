@@ -22,6 +22,7 @@ Backend
 - Poetry
 - FastAPI
 - Predictionguard LLM
+- Chatengine IO Api
 
 Frontend
 - React-Native
@@ -31,5 +32,22 @@ Frontend
 The app is containerized with Docker. To run the app, you need to have Docker installed on your machine.
 
 1. Clone the repository
-2. Run `docker-compose up` in the backend directory
-3. Run `npx expo` in the frontend directory
+2. Fill in the credentials for Predictionguard LLM and Chatengine IO Api in the `.env` file in the backend directory
+3. Run `docker-compose up` in the backend directory
+4. Run `npx expo` in the frontend directory
+
+## Backend Endpoints
+- `/message` - Chat with the AI via a POST request in [llm.py](backend/src/routers/llm.py)
+- `/authenticate` - Chatengine IO access via POST request in [chat.py](backend/src/routers/chat.py)
+- `/user` - Coworker Matchmaking via POST request in [interest.py](backend/src/routers/interest.py)
+
+## Predictionguard LLM
+The AI is provided by [Predictionguard LLM](https://docs.predictionguard.com/docs/getting-started/welcome).
+
+Ask @Hannes221 for the credentials.
+
+## Chatengine IO Api
+The Chat feature is provided by [Chatengine IO](https://chatengine.io/docs).
+The project adress is [here](https://chatengine.io/projects/8cbae9cf-b388-4448-801f-6855fd62a8ad#).
+
+Ask @maxonary for the credentials.
