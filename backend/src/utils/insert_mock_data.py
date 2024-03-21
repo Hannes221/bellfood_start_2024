@@ -7,7 +7,7 @@ from uuid import uuid4
 
 def create_fake_user():
     return User(
-        email=uuid4(),
+        email=uuid4 + "@gmail.com",
         food=choice([True, False]),
         languages=choice([True, False]),
         travel=choice([True, False]),
