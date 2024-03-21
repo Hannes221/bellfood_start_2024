@@ -7,6 +7,7 @@ import { Modal, View, Text, TouchableOpacity, Button, StyleSheet } from 'react-n
 import * as SplashScreen from 'expo-splash-screen';
 
 import SelectLanguage from '../components/LanguageSelect';
+import SelectInterests from '../components/InterestsSelect';
 
 import { useColorScheme } from '@/components/useColorScheme';
 
@@ -68,8 +69,9 @@ export default function RootLayout() {
     return (
       <Modal>
         <View style={styles.container}>
+          <SelectInterests />
           {/* Interest selection modal content here */}
-          <Button title="Finish" onPress={() => setOnboardingState(null)} />
+          <Button title="Finish ✅" onPress={() => setOnboardingState(null)} />
         </View>
       </Modal>
     );
