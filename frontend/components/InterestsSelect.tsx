@@ -1,8 +1,25 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import axios from 'axios';
+
+interface UserBase {
+    food: boolean;
+    languages: boolean;
+    travel: boolean;
+    technology: boolean;
+    music: boolean;
+    art: boolean;
+    sports: boolean;
+    origin: boolean;
+    health: boolean;
+    freetime: boolean;
+    culture: boolean;
+    nature: boolean;
+}
+
 
 const SelectInterests = () => {
-    const [selectedOptions, setSelectedOptions] = useState([]);
+    const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
 
     const options = [
         'Food',
@@ -18,6 +35,19 @@ const SelectInterests = () => {
         'Culture',
         'Nature',
     ];
+
+    const submitInterests = async (selectedOptions: string[]) => {
+        try {
+            const response = await axios.post('http://localhost:8000/interest', {
+                interests: selectedOptions,
+            });
+            console.log('Interests submitted:', response.data);
+            setSelectedOptions([]);
+        } catch (error) {
+            console.error('Error submitting interests:', error);
+        }
+    };    
+
 
     const handleOptionSelect = (option: any) => {
         if (selectedOptions.includes(option)) {
@@ -43,6 +73,11 @@ const SelectInterests = () => {
                         <Text style={styles.optionText}>{option}</Text>
                     </TouchableOpacity>
                 ))}
+                <TouchableOpacity
+                    onPress={() => submitInterests(selectedOptions)}
+                >
+                    <Text>Save</Text>
+                </TouchableOpacity>
             </View>
             {/**
             <Text>What interest are we missing?</Text>
