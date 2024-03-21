@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from llm.llm_setup import get_response
+from backend.src.utils.llm_setup import get_response
 
 router = APIRouter()
 

@@ -23,4 +23,4 @@ def get_response(user_message):
     result = pg.Chat.create(model="Neural-Chat-7B", messages=messages)
 
     # Extract and return the response.
-    return result['messages'][-1]['content']
+    return result['choices'][0]['message']['content']
