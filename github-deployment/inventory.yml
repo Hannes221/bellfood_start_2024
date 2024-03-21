@@ -1,8 +1,0 @@
-webservers:
-  hosts:
-    server1:
-      ansible_connection: ssh
-      ansible_host: '20.218.134.25'
-      ansible_user: azureuser
-  vars:
-    ansible_ssh_common_args: '-o StrictHostKeyChecking=no'
