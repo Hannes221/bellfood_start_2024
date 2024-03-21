@@ -1,8 +1,13 @@
 from fastapi import APIRouter
 from backend.src.utils.llm_setup import get_response
+from pydantic import BaseModel
 
 router = APIRouter()
 
+class MessageBody(BaseModel):
+    input_str: str
+    user_id: str
+
 @router.post("/message")
-def post_message(input_str: str):
-    return get_response(input_str)
+def post_message(body: MessageBody):
+    return get_response(body.input_str, body.user_id)
