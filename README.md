@@ -22,6 +22,7 @@ Backend
 - Poetry
 - FastAPI
 - Predictionguard LLM
+- Chatengine IO Api
 
 Frontend
 - React-Native
@@ -33,3 +34,9 @@ The app is containerized with Docker. To run the app, you need to have Docker in
 1. Clone the repository
 2. Run `docker-compose up` in the backend directory
 3. Run `npx expo` in the frontend directory
+
+## Chatengine IO Api
+The Chat feature is provided by Chatengine IO. You can find the documentation [here](https://chatengine.io/docs).
+The project adress is [here](https://chatengine.io/projects/8cbae9cf-b388-4448-801f-6855fd62a8ad#)
+
+Ask @maxonary for the credentials.
