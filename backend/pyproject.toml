@@ -16,6 +16,7 @@ sqlalchemy = "^2.0.28"
 pydantic-settings = "^2.2.1"
 psycopg2 = "^2.9.9"
 uuid = "^1.30"
+requests = "^2.31.0"
 
 
 [build-system]
