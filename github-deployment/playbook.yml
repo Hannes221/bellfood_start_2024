@@ -15,13 +15,13 @@
 
     - name: Tear down existing services
       community.docker.docker_compose:
-        project_src: '{{ project_folder }}'
+        project_src: '{{ backend_src }}'
         state: absent
       become: true
 
     - name: Start container
       community.docker.docker_compose:
-        project_src: '{{ project_folder }}'
+        project_src: '{{ backend_src }}'
         build: yes
       register: compose_output
       become: true
