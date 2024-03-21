@@ -53,19 +53,30 @@ export default function RootLayout() {
   // Render the first onboarding modal if onboardingState is 0
   if (onboardingState === 0) {
     return (
-      
-        <Modal>
-          <View style={styles.container}>
-          <SelectLanguage />
+      <Modal>
+        <View style={styles.container}>
+          
           {/* Language selection modal content here */}
-          <Button title="➡️"  onPress={() => setOnboardingState(1)} />
-          </View>
-        </Modal>
+          <Button title="Email" onPress={() => setOnboardingState(1)} />
+        </View>
+      </Modal>
     );
   }
 
   // Render the second onboarding modal if onboardingState is 1
   if (onboardingState === 1) {
+    return (
+      <Modal>
+        <View style={styles.container}>
+          <SelectLanguage />
+          {/* Language selection modal content here */}
+          <Button title="➡️" onPress={() => setOnboardingState(2)} />
+        </View>
+      </Modal>
+    );
+  }
+
+  if (onboardingState === 2) {
     return (
       <Modal>
         <View style={styles.container}>
