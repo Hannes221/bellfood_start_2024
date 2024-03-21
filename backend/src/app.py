@@ -1,7 +1,6 @@
 from fastapi import FastAPI
-from backend.src.routers import llm, interest, chat
+from backend.src.routers import llm, interest, chat, matchmaking
 from fastapi.middleware.cors import CORSMiddleware
-from backend.src.routers import llm, interest, matchmaking
 from backend.src.utils.insert_mock_data import populate_db
 
 app = FastAPI()
