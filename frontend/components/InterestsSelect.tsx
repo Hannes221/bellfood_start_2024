@@ -44,12 +44,16 @@ const SelectInterests = () => {
                     </TouchableOpacity>
                 ))}
             </View>
+            {/**
             <Text>What interest are we missing?</Text>
             {selectedOptions.length > 0 && (
-                <Text style={styles.selectedOptionText}>
-                    Your Interests: {selectedOptions.join(', ')}
-                </Text>
+                <View>
+                    <Text style={styles.selectedOptionText}>
+                        Your Interests: {selectedOptions.join(', ')}
+                    </Text>
+                </View>
             )}
+             */}
         </>
     );
 };
