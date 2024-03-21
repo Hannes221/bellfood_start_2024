@@ -12,7 +12,6 @@
         repo: '{{ repo_folder }}'
         dest: '{{ project_folder }}'
         update: yes
-        force: yes
 
     - name: Tear down existing services
       community.docker.docker_compose:
