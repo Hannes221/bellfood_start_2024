@@ -35,6 +35,11 @@ The app is containerized with Docker. To run the app, you need to have Docker in
 2. Run `docker-compose up` in the backend directory
 3. Run `npx expo` in the frontend directory
 
+## Predictionguard LLM
+The AI is provided by Predictionguard LLM. You can find the documentation [here](https://docs.predictionguard.com/docs/getting-started/welcome).
+
+Ask @Hannes221 for the credentials.
+
 ## Chatengine IO Api
 The Chat feature is provided by Chatengine IO. You can find the documentation [here](https://chatengine.io/docs).
 The project adress is [here](https://chatengine.io/projects/8cbae9cf-b388-4448-801f-6855fd62a8ad#)
