@@ -23,3 +23,16 @@ services:
 
   redis:
     image: redis:7.0
+
+  db:
+    image: postgres:16.0
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - db:/var/lib/postgresql/data
+
+volumes:
+  db:
+    driver: local

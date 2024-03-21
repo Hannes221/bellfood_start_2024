@@ -2,8 +2,11 @@ import os
 import json
 import predictionguard as pg
 import redis
+from backend.src.settings import Settings
 
-os.environ["PREDICTIONGUARD_TOKEN"] = "q1VuOjnffJ3NO2oFN8Q9m8vghYc84ld13jaqdF7E"
+settings = Settings()
+
+os.environ["PREDICTIONGUARD_TOKEN"] = settings.llm_key
 
 old_messages = [
     {

@@ -12,6 +12,8 @@ ansible = "^9.3.0"
 uvicorn = "^0.29.0"
 predictionguard = "^1.9.2"
 redis = "^5.0.3"
+sqlalchemy = "^2.0.28"
+pydantic-settings = "^2.2.1"
 
 
 [build-system]
