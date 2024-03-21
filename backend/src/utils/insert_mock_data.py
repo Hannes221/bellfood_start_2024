@@ -3,11 +3,13 @@ from sqlalchemy.orm import Session
 from backend.src.database.models import User
 from backend.src.database.database import engine
 from random import choice
-from uuid import uuid4
+from faker import Faker
+
+fake = Faker()
 
 def create_fake_user():
     return User(
-        email=uuid4 + "@gmail.com",
+        email=fake.name().replace(" ", "") + "@gmail.com",
         food=choice([True, False]),
         languages=choice([True, False]),
         travel=choice([True, False]),
