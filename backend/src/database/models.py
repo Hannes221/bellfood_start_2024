@@ -1,12 +1,13 @@
 from sqlalchemy.orm import Mapped, mapped_column
-from database.database import Base
+import uuid
+from backend.src.database.database import Base, engine
 
 
 class User(Base):
     __tablename__ = "users"
 
-    id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True, index=True)
-    name: Mapped[str] = mapped_column()
+    id: Mapped[uuid.UUID] = mapped_column(primary_key=True, index=True, default=uuid.uuid4)
+    email: Mapped[str] = mapped_column()
     food: Mapped[bool] = mapped_column()
     languages: Mapped[bool] = mapped_column()
     travel: Mapped[bool] = mapped_column()
@@ -19,3 +20,6 @@ class User(Base):
     freetime: Mapped[bool] = mapped_column()
     culture: Mapped[bool] = mapped_column()
     nature: Mapped[bool] = mapped_column()
+    
+    
+Base.metadata.create_all(bind=engine)

@@ -28,9 +28,10 @@ old_messages = [
 # Initialize the Redis client.
 r = redis.Redis(host="redis")
 
-def get_response(user_message):
+def get_response(user_message: str, user_id: str):
     # Fetch old messages from Redis. If none exist, use default old_messages
-    redis_old_msgs = r.get("messages")
+    user_messages_key = "messages_" + user_id
+    redis_old_msgs = r.get(user_messages_key)
     saved_messages = old_messages if redis_old_msgs is None else json.loads(redis_old_msgs)
 
     # Define the system and user messages.
@@ -52,6 +53,6 @@ def get_response(user_message):
         "role": "system",
         "content": response
     })
-    r.set("messages", json.dumps(messages))
+    r.set(user_messages_key, json.dumps(messages))
 
     return response
