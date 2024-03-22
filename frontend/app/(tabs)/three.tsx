@@ -60,8 +60,18 @@ export default function TabThreeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    margin: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
     maxWidth: 'auto',
+  },
+  title: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginTop: 10,
+  },
+  matchContainer: {
+    padding: 20,
+    alignItems: 'center',
   },
   item: {
     flex: 1,
