@@ -1,0 +1,179 @@
+{
+  "pages": {
+    "1": {
+      "Deutsch": {
+        "Select your interests": "Wählen Sie Ihre Interessen",
+        "Food": "Essen",
+        "Travel": "Reisen",
+        "Music": "Musik",
+        "Sports": "Sport",
+        "Health": "Gesundheit",
+        "Culture": "Kultur",
+        "Nature": "Natur",
+        "Freetime": "Freizeit",
+        "Origin": "Herkunft",
+        "Art": "Kunst",
+        "Technology": "Technologie",
+        "Languages": "Sprachen",
+        "Finish": "Fertig"
+      },
+      "English": {
+        "Select your interests": "Select your interests",
+        "Food": "Food",
+        "Travel": "Travel",
+        "Music": "Music",
+        "Sports": "Sports",
+        "Health": "Health",
+        "Culture": "Culture",
+        "Nature": "Nature",
+        "Freetime": "Freetime",
+        "Origin": "Origin",
+        "Art": "Art",
+        "Technology": "Technology",
+        "Languages": "Languages",
+        "Finish": "Finish"
+      },
+      "Italiano": {
+        "Select your interests": "Seleziona i tuoi interessi",
+        "Food": "Cibo",
+        "Travel": "Viaggi",
+        "Music": "Musica",
+        "Sports": "Sport",
+        "Health": "Salute",
+        "Culture": "Cultura",
+        "Nature": "Natura",
+        "Freetime": "Tempo libero",
+        "Origin": "Origine",
+        "Art": "Arte",
+        "Technology": "Tecnologia",
+        "Languages": "Lingue",
+        "Finish": "Finito"
+      }
+    },
+    "Ungarisch": {
+      "Select your interests": "Válassza ki az érdeklődési köreit",
+      "Food": "Étel",
+      "Travel": "Utazás",
+      "Music": "Zene",
+      "Sports": "Sport",
+      "Health": "Egészség",
+      "Culture": "Kultúra",
+      "Nature": "Természet",
+      "Freetime": "Szabadidő",
+      "Origin": "Eredet",
+      "Art": "Művészet",
+      "Technology": "Technológia",
+      "Languages": "Nyelvek",
+      "Finish": "Befejez"
+    },
+    "Russisch": {
+      "Select your interests": "Выберите свои интересы",
+      "Food": "Еда",
+      "Travel": "Путешествовать",
+      "Music": "Музыка",
+      "Sports": "Спорт",
+      "Health": "Здоровье",
+      "Culture": "Культура",
+      "Nature": "Природа",
+      "Freetime": "Свободное время",
+      "Origin": "Происхождение",
+      "Art": "Искусство",
+      "Technology": "Технологии",
+      "Languages": "Языки",
+      "Finish": "Завершить"
+    },
+    "Español": {
+      "Select your interests": "Selecciona tus intereses",
+      "Food": "Comida",
+      "Travel": "Viajar",
+      "Music": "Música",
+      "Sports": "Deportes",
+      "Health": "Salud",
+      "Culture": "Cultura",
+      "Nature": "Naturaleza",
+      "Freetime": "Tiempo libre",
+      "Origin": "Origen",
+      "Art": "Arte",
+      "Technology": "Tecnología",
+      "Languages": "Idiomas",
+      "Finish": "Terminar"
+    },
+    "Français": {
+      "Select your interests": "Sélectionnez vos centres d'intérêt",
+      "Food": "Aliments",
+      "Travel": "Voyage",
+      "Music": "Musique",
+      "Sports": "Sports",
+      "Health": "Santé",
+      "Culture": "Culture",
+      "Nature": "Nature",
+      "Freetime": "Temps libre",
+      "Origin": "Origine",
+      "Art": "Art",
+      "Technology": "Technologie",
+      "Languages": "Langues",
+      "Finish": "Terminé"
+    },
+    "Polski": {
+      "Select your interests": "Wybierz swoje zainteresowania",
+      "Food": "Jedzenie",
+      "Travel": "Podróże",
+      "Music": "Muzyka",
+      "Sports": "Sporty",
+      "Health": "Zdrowie",
+      "Culture": "Kultura",
+      "Nature": "Natura",
+      "Freetime": "Czas wolny",
+      "Origin": "Pochodzenie",
+      "Art": "Sztuka",
+      "Technology": "Technologia",
+      "Languages": "Języki",
+      "Finish": "Koniec"
+    },
+    "Chinesisch": {
+      "Select your interests": "选择你的兴趣",
+      "Food": "食物",
+      "Travel": "旅行",
+      "Music": "音乐",
+      "Sports": "体育",
+      "Health": "健康",
+      "Culture": "文化",
+      "Nature": "自然",
+      "Freetime": "空闲时间",
+      "Origin": "起源",
+      "Art": "艺术",
+      "Technology": "技术",
+      "Languages": "语言",
+      "Finish": "完成"
+    }
+  },
+  "2": {
+    "Deutsch": {
+      "Type a message": "Schreiben Sie eine Nachricht"
+    },
+    "English": {
+      "Type a message": "Type a message"
+    },
+    "Italiano": {
+      "Type a message": "Scrivi un messaggio"
+    },
+    "Ungarisch": {
+      "Type a message": "Írjon egy üzenetet"
+    },
+    "Russisch": {
+      "Type a message": "Введите сообщение"
+    },
+    "Español": {
+      "Type a message": "Escribe un mensaje"
+    },
+    "Français": {
+      "Type a message": "Tapez un message"
+    },
+    "Polski": {
+      "Type a message": "Wpisz wiadomość"
+    },
+    "Chinesisch": {
+      "Type a message": "输入消息"
+    }
+  }
+}
