@@ -43,7 +43,8 @@ The app is containerized with Docker. To run the app, you must have Docker insta
 ## Backend Endpoints
 - `/message` - Chat with the AI via a POST request in [llm.py](backend/src/routers/llm.py)
 - `/authenticate` - Chatengine IO access via POST request in [chat.py](backend/src/routers/chat.py)
-- `/user` - Coworker Matchmaking via POST request in [interest.py](backend/src/routers/interest.py)
+- `/user` - Coworker Signup via POST request in [interest.py](backend/src/routers/interest.py)
+- `/matching` - Coworker Matchmaking via POST request in [interest.py](backend/src/routers/matchmaking.py)
 
 ## Predictionguard LLM
 The AI is provided by [Predictionguard LLM](https://docs.predictionguard.com/docs/getting-started/welcome).
