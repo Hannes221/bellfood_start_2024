@@ -3,15 +3,34 @@ import { StyleSheet } from 'react-native';
 import EditScreenInfo from '@/components/EditScreenInfo';
 import { Text, View } from '@/components/Themed';
 
-export default function TabTwoScreen() {
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+import axios from 'axios';
+import { useEffect } from 'react';
+
+const TabTwoScreen = (props: any) => {
+  const onSubmit = () => {
+    const email = AsyncStorage.getItem('@MySuperStore:key').then((value) => {
+      axios.post("http://localhost:8000/chat", { username: email }
+      )
+      props.onAuth({ username: email, secret: value })
+    });
+    
+  }
+
+  useEffect(() => {
+    onSubmit();
+  }, )
+
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Lobby</Text>
+      <Text style={styles.title}>Matches</Text>
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="app/(tabs)/two.tsx" />
     </View>
   );
 }
+
+export default TabTwoScreen;
 
 const styles = StyleSheet.create({
   container: {
