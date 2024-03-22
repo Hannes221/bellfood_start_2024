@@ -1,36 +1,36 @@
-import React, { useState } from "react";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
+import React, { useState } from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 
 const SelectLanguage = () => {
   const [selectedOption, setSelectedOption] = useState(null);
 
   const options = [
-    "🇪🇸 Español",
-    "🇩🇪 Deutsch",
-    "🏴󠁧󠁢󠁥󠁮󠁧󠁿 English",
-    "🇮🇹 Italiano",
-    "🇫🇷 Français",
-    "🇭🇺 Magyar",
-    "🇵🇱 Polski",
-    "🇷🇺 Русский",
-    "🇨🇳 中文",
+    '🇪🇸 Español',
+    '🇩🇪 Deutsch',
+    '🏴󠁧󠁢󠁥󠁮󠁧󠁿 English',
+    '🇮🇹 Italiano',
+    '🇫🇷 Français',
+    '🇭🇺 Magyar',
+    '🇵🇱 Polski',
+    '🇷🇺 Русский',
+    '🇨🇳 中文',
   ];
 
   const languageDict: any = {
-    "🇪🇸 Español": "Español",
-    "🇩🇪 Deutsch": "Deutsch",
-    "🏴 English": "English",
-    "🇮🇹 Italiano": "Italiano",
-    "🇫🇷 Français": "Français",
-    "🇭🇺 Magyar": "Ungarisch",
-    "🇵🇱 Polski": "Polski",
-    "🇷🇺 Русский": "Russisch",
-    "🇨🇳 中文": "Chinesisch",
+    '🇪🇸 Español': 'Español',
+    '🇩🇪 Deutsch': 'Deutsch',
+    '🏴󠁧󠁢󠁥󠁮󠁧󠁿 English': 'English',
+    '🇮🇹 Italiano': 'Italiano',
+    '🇫🇷 Français': 'Français',
+    '🇭🇺 Magyar': 'Ungarisch',
+    '🇵🇱 Polski': 'Polski',
+    '🇷🇺 Русский': 'Russisch',
+    '🇨🇳 中文': 'Chinesisch',
   };
 
   const handleOptionSelect = async (option: any) => {
-    await AsyncStorage.setItem("@MySuperStore:language", languageDict[option]);
+    await AsyncStorage.setItem('@MySuperStore:language', languageDict[option]);
     setSelectedOption(option);
   };
 
@@ -63,34 +63,34 @@ const SelectLanguage = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#F5FCFF",
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF',
   },
   title: {
     fontSize: 24,
-    fontWeight: "bold",
+    fontWeight: 'bold',
     marginBottom: 20,
   },
   optionsContainer: {
-    flexDirection: "row",
-    flexWrap: "wrap",
-    justifyContent: "space-around",
-    width: "80%",
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-around',
+    width: '80%',
   },
   optionButton: {
-    backgroundColor: "#ddd",
+    backgroundColor: '#ddd',
     borderRadius: 5,
     padding: 10,
     margin: 5,
-    width: "45%",
-    alignItems: "center",
+    width: '45%',
+    alignItems: 'center',
   },
   selectedOptionButton: {
-    backgroundColor: "#007AFF",
+    backgroundColor: '#007AFF',
   },
   optionText: {
-    color: "#333",
+    color: '#333',
     fontSize: 16,
   },
   selectedOptionText: {

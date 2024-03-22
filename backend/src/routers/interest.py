@@ -18,6 +18,7 @@ def add_user(user: UserBase, db: Session = Depends(get_db)):
     
     db_user = User(**user.dict())
     db.add(db_user) 
+    db.commit()
     db.flush()
 
     db.refresh(db_user)

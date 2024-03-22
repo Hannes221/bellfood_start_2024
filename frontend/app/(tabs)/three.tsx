@@ -1,42 +1,55 @@
-import React from 'react';
-import { StyleSheet, FlatList, View, Text } from 'react-native';
-
-import EditScreenInfo from '@/components/EditScreenInfo';
-
-// Mock user interests
-const userInterests = ['Food', 'Technology', 'Music', 'Art', 'Sports', 'Health', 'Nature'];
-
-// Mock data for example workers
-const workers = [
-  { id: '1', name: 'Alice', interests: ['Food', 'Languages', 'Travel'] },
-  { id: '2', name: 'Bob', interests: ['Technology', 'Music', 'Art'] },
-  { id: '3', name: 'Charlie', interests: ['Sports', 'Origin', 'Health'] },
-  { id: '4', name: 'Diana', interests: ['Freetime', 'Culture', 'Nature'] },
-  { id: '5', name: 'Evan', interests: ['Food', 'Music', 'Art'] },
-  { id: '6', name: 'Fiona', interests: ['Languages', 'Travel', 'Technology'] },
-  { id: '7', name: 'George', interests: ['Sports', 'Health', 'Food'] },
-];
-
-// Function to find common interests
-const findCommonInterests = (workerInterests: any) => {
-  return workerInterests.filter(interest => userInterests.includes(interest)).length >= 3;
-};
+import React, { useState, useEffect } from 'react';
+import { StyleSheet, FlatList, View } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import axios from 'axios';
+import { Card } from 'react-native-elements';
 
 export default function TabThreeScreen() {
-  // Filter matches based on common interests
-  const matches = workers.filter(worker => findCommonInterests(worker.interests));
+  // Define a type for a match
+  interface Match {
+    id: string;
+    email: string;
+    food: boolean;
+    languages: boolean;
+    travel: boolean;
+    technology: boolean;
+    music: boolean;
+    art: boolean;
+    sports: boolean;
+    origin: boolean;
+    health: boolean;
+    freetime: boolean;
+    culture: boolean;
+    nature: boolean;
+  }
+  const [matches, setMatches] = useState<Match[]>([]);
+  useEffect(() => {
+    AsyncStorage.getItem('@MySuperStore:key').then((value) => {
+      axios
+        .post('http://localhost:8000/matching', {
+          email: value,
+        })
+        .then((response) => {
+          setMatches(response.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    });
+  }, []);
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Your matches:</Text>
-      {/* Map over the matches and display them */}
       <FlatList
         data={matches}
-        keyExtractor={(item) => item.id}
-        renderItem={({ item }) => (
-          <View style={styles.matchContainer}>
-            <Text style={styles.matchName}>{item.name}</Text>
-            <Text style={styles.matchInterests}>{item.interests.join(', ')}</Text>
+        keyExtractor={(item: Match) => item.id.toString()}
+        renderItem={({ item }: { item: Match }) => (
+          <View style={styles.item}>
+            <Card>
+              <Card.Title>{item.email}</Card.Title>
+              <Card.Divider />
+              {/* List down the interests here */}
+            </Card>
           </View>
         )}
       />
@@ -47,28 +60,12 @@ export default function TabThreeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    margin: 10,
+    maxWidth: 'auto',
   },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    marginTop: 10,
-  },
-  matchContainer: {
-    padding: 20,
-    alignItems: 'center',
-  },
-  matchName: {
-    fontSize: 18,
-    fontWeight: 'bold',
-  },
-  matchInterests: {
-    fontSize: 14,
-  },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: '80%',
+  item: {
+    flex: 1,
+    margin: 10,
+    maxWidth: 'auto',
   },
 });

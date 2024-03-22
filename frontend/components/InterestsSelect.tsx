@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
 import {
   StyleSheet,
   Text,
   View,
   TouchableOpacity,
   TextInput,
-} from "react-native";
-import axios from "axios";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import translations from "../assets/static/translations";
+} from 'react-native';
+import axios from 'axios';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import translations from '../assets/static/translations';
 
 interface UserBase {
   email: string;
@@ -28,53 +28,53 @@ interface UserBase {
 
 const SelectInterests = () => {
   const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
-  const [selectedLanguage, setSelectedLanguage] = useState<string>("English");
+  const [selectedLanguage, setSelectedLanguage] = useState<string>('English');
 
   const options = [
-    "Food",
-    "Languages",
-    "Travel",
-    "Technology",
-    "Music",
-    "Art",
-    "Sports",
-    "Origin",
-    "Health",
-    "Freetime",
-    "Culture",
-    "Nature",
+    'Food',
+    'Languages',
+    'Travel',
+    'Technology',
+    'Music',
+    'Art',
+    'Sports',
+    'Origin',
+    'Health',
+    'Freetime',
+    'Culture',
+    'Nature',
   ];
 
   useEffect(() => {
-    AsyncStorage.getItem("@MySuperStore:language").then((language) => {
+    AsyncStorage.getItem('@MySuperStore:language').then((language) => {
       setSelectedLanguage(language!);
     });
   });
 
   async function submitInterests(selectedOptions: string[]) {
-    const email = await AsyncStorage.getItem("@MySuperStore:key");
+    const email = await AsyncStorage.getItem('@MySuperStore:key');
     const body = {
       email: email,
-      food: selectedOptions.includes("Food"),
-      languages: selectedOptions.includes("Languages"),
-      travel: selectedOptions.includes("Travel"),
-      technology: selectedOptions.includes("Technology"),
-      music: selectedOptions.includes("Music"),
-      art: selectedOptions.includes("Art"),
-      sports: selectedOptions.includes("Sports"),
-      origin: selectedOptions.includes("Origin"),
-      health: selectedOptions.includes("Health"),
-      freetime: selectedOptions.includes("Freetime"),
-      culture: selectedOptions.includes("Culture"),
-      nature: selectedOptions.includes("Nature"),
+      food: selectedOptions.includes('Food'),
+      languages: selectedOptions.includes('Languages'),
+      travel: selectedOptions.includes('Travel'),
+      technology: selectedOptions.includes('Technology'),
+      music: selectedOptions.includes('Music'),
+      art: selectedOptions.includes('Art'),
+      sports: selectedOptions.includes('Sports'),
+      origin: selectedOptions.includes('Origin'),
+      health: selectedOptions.includes('Health'),
+      freetime: selectedOptions.includes('Freetime'),
+      culture: selectedOptions.includes('Culture'),
+      nature: selectedOptions.includes('Nature'),
     };
 
     try {
-      const response = await axios.post("http://localhost:8000/user", body);
-      console.log("Interests submitted:", response.data);
+      const response = await axios.post('http://localhost:8000/user', body);
+      console.log('Interests submitted:', response.data);
       setSelectedOptions([]);
     } catch (error) {
-      console.error("Error submitting interests:", error);
+      console.error('Error submitting interests:', error);
     }
   }
 
@@ -88,9 +88,7 @@ const SelectInterests = () => {
 
   return (
     <>
-      <Text style={styles.title}>
-        {translations.pages["1"][selectedLanguage]["Select your interests"]}
-      </Text>
+      <Text style={styles.title}>Select your interests</Text>
       <View style={styles.optionsContainer}>
         {options.map((option, index) => (
           <TouchableOpacity
@@ -101,10 +99,7 @@ const SelectInterests = () => {
             ]}
             onPress={() => handleOptionSelect(option)}
           >
-            <Text style={styles.optionText}>
-              {option}
-              {translations.pages["1"][selectedLanguage]["Food"]}
-            </Text>
+            <Text style={styles.optionText}>{option}</Text>
           </TouchableOpacity>
         ))}
         <TouchableOpacity onPress={() => submitInterests(selectedOptions)}>
@@ -128,34 +123,34 @@ const SelectInterests = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#F5FCFF",
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF',
   },
   title: {
     fontSize: 24,
-    fontWeight: "bold",
+    fontWeight: 'bold',
     marginBottom: 20,
   },
   optionsContainer: {
-    flexDirection: "row",
-    flexWrap: "wrap",
-    justifyContent: "space-around",
-    width: "80%",
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-around',
+    width: '80%',
   },
   optionButton: {
-    backgroundColor: "#ddd",
+    backgroundColor: '#ddd',
     borderRadius: 5,
     padding: 10,
     margin: 5,
-    width: "45%",
-    alignItems: "center",
+    width: '45%',
+    alignItems: 'center',
   },
   selectedOptionButton: {
-    backgroundColor: "#007AFF",
+    backgroundColor: '#007AFF',
   },
   optionText: {
-    color: "#333",
+    color: '#333',
     fontSize: 16,
   },
   selectedOptionText: {
@@ -163,8 +158,8 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   input: {
-    width: "80%",
-    borderColor: "gray",
+    width: '80%',
+    borderColor: 'gray',
     borderWidth: 1,
     padding: 10,
     marginBottom: 10,

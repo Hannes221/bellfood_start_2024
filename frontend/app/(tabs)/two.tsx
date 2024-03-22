@@ -12,15 +12,13 @@ import { useEffect, useState } from 'react';
 
 const TabTwoScreen = () => {
   // const onSubmit = () => {
-  //   AsyncStorage.getItem('@MySuperStore:key').then((value) => {
-  //     axios.post('http://localhost:8000/authenticate', {
-  //       username: value,
-  //     });
+  // AsyncStorage.getItem('@MySuperStore:key').then((value) => {
+  //   axios.post('http://localhost:8000/authenticate', {
+  //     username: value,
   //   });
+  // });
   // };
-
   // const [email, setEmail] = useState<string>('');
-
   // useEffect(() => {
   //   AsyncStorage.getItem('@MySuperStore:key').then((value) => {
   //     setEmail(value!);
@@ -30,14 +28,14 @@ const TabTwoScreen = () => {
 
   return (
     // <View style={styles.container}>
-    //   <Text style={styles.title}>Matches</Text>
+    <Text style={styles.title}>Matches</Text>
     //   <View
     //     style={styles.separator}
     //     lightColor='#eee'
     //     darkColor='rgba(255,255,255,0.1)'
     //   />
     // <ChatEngine
-    //   publicKey={'8cbae9cf-b388-4448-801f-6855fd62a8ad'}
+    //   publicKey={''}
     //   userName={'Markus'}
     //   userSecret={'Markus'}
     // />
