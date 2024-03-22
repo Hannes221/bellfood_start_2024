@@ -37,6 +37,8 @@ Frontend
 # Sample Video (Dev Stage Mar 22. 2024)
 
 https://github.com/Hannes221/bellfood_start_2024/assets/113210660/276287c4-3b45-48e8-9c26-2d5b7f78ca76
+https://github.com/Hannes221/bellfood_start_2024/assets/113210660/4db1f2da-a8dd-44cf-ac49-bef3e389c473
+
 
 ## Installation
 
