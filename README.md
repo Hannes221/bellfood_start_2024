@@ -38,6 +38,9 @@ Frontend
 
 https://github.com/Hannes221/bellfood_start_2024/assets/113210660/276287c4-3b45-48e8-9c26-2d5b7f78ca76
 
+https://github.com/Hannes221/bellfood_start_2024/assets/113210660/4b4a3273-c6dc-4eaa-a4f4-bece494641e6
+
+
 ## Installation
 
 The app is containerized with Docker. To run the app, you must have Docker installed on your machine.
