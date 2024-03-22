@@ -28,6 +28,9 @@ Frontend
 - React-Native
 - Expo
 
+# Sample Video (Dev Stage Mar 22. 2024)
+https://github.com/Hannes221/bellfood_start_2024/assets/62939182/25af5851-9956-4c36-816e-93614491961e
+
 ## Installation
 The app is containerized with Docker. To run the app, you must have Docker installed on your machine.
 
