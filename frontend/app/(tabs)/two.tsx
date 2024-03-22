@@ -4,31 +4,45 @@ import EditScreenInfo from '@/components/EditScreenInfo';
 import { Text, View } from '@/components/Themed';
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { PrettyChatWindow } from 'react-chat-engine-pretty';
 
 import axios from 'axios';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
-const TabTwoScreen = (props: any) => {
+const TabTwoScreen = () => {
   const onSubmit = () => {
-    const email = AsyncStorage.getItem('@MySuperStore:key').then((value) => {
-      axios.post("http://localhost:8000/chat", { username: email }
-      )
-      props.onAuth({ username: email, secret: value })
+    AsyncStorage.getItem('@MySuperStore:key').then((value) => {
+      axios.post('http://localhost:8000/authenticate', {
+        username: value,
+      });
     });
-    
-  }
+  };
+
+  const [email, setEmail] = useState<string>('');
 
   useEffect(() => {
+    AsyncStorage.getItem('@MySuperStore:key').then((value) => {
+      setEmail(value!);
+    });
     onSubmit();
-  }, )
+  });
 
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Matches</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
+      <View
+        style={styles.separator}
+        lightColor='#eee'
+        darkColor='rgba(255,255,255,0.1)'
+      />
+      <PrettyChatWindow
+        projectId={process.env.REACT_APP_CHATENGINE_PROJECT_ID!}
+        username={email}
+        secret={process.env.REACT_APP_CHATENGINE_PRIVATE_KEY!}
+      />
     </View>
   );
-}
+};
 
 export default TabTwoScreen;
 
