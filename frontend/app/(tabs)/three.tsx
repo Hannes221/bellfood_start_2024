@@ -6,7 +6,10 @@ import { Text, View } from '@/components/Themed';
 export default function TabThreeScreen() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Your matches</Text>
+      <Text style={styles.title}>Your matches: </Text>
+      {/**
+       * map the matches here
+       */}
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
       <EditScreenInfo path="app/(tabs)/two.tsx" />
     </View>
