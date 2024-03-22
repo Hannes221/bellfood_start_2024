@@ -30,7 +30,7 @@ const TabTwoScreen = () => {
 
   return (
     // <View style={styles.container}>
-    //   <Text style={styles.title}>Matches</Text>
+      <Text style={styles.title}>Matches</Text>
     //   <View
     //     style={styles.separator}
     //     lightColor='#eee'

@@ -49,6 +49,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    maxWidth: "auto",
   },
   title: {
     fontSize: 20,
