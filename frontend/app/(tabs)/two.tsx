@@ -1,13 +1,18 @@
 import { StyleSheet } from 'react-native';
+import {
+  REACT_APP_CHATENGINE_PROJECT_ID,
+  REACT_APP_CHATENGINE_PRIVATE_KEY,
+} from '@env';
 
 import EditScreenInfo from '@/components/EditScreenInfo';
 import { Text, View } from '@/components/Themed';
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { PrettyChatWindow } from 'react-chat-engine-pretty';
 
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+
+import { ChatEngine } from 'react-chat-engine';
 
 const TabTwoScreen = () => {
   const onSubmit = () => {
@@ -28,19 +33,19 @@ const TabTwoScreen = () => {
   });
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Matches</Text>
-      <View
-        style={styles.separator}
-        lightColor='#eee'
-        darkColor='rgba(255,255,255,0.1)'
-      />
-      <PrettyChatWindow
-        projectId={process.env.REACT_APP_CHATENGINE_PROJECT_ID!}
-        username={email}
-        secret={process.env.REACT_APP_CHATENGINE_PRIVATE_KEY!}
-      />
-    </View>
+    // <View style={styles.container}>
+    //   <Text style={styles.title}>Matches</Text>
+    //   <View
+    //     style={styles.separator}
+    //     lightColor='#eee'
+    //     darkColor='rgba(255,255,255,0.1)'
+    //   />
+    <ChatEngine
+      publicKey={'8cbae9cf-b388-4448-801f-6855fd62a8ad'}
+      userName={'Markus'}
+      userSecret={'Markus'}
+    />
+    // {/* </View> */}
   );
 };
 

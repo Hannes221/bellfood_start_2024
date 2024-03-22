@@ -27,7 +27,7 @@
     "expo-system-ui": "~2.9.3",
     "expo-web-browser": "~12.8.2",
     "react": "18.2.0",
-    "react-chat-engine-pretty": "^0.1.8",
+    "react-chat-engine": "^1.11.28",
     "react-dom": "18.2.0",
     "react-native": "0.73.6",
     "react-native-gifted-chat": "^2.4.0",
