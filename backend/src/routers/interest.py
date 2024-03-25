@@ -2,7 +2,7 @@ from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 from backend.src.database.models import User
-from backend.src.database.schemas import UserRead, UserBase
+from backend.src.database.schemas import UserBase
 from backend.src.database.database import get_db
 
 router = APIRouter()
@@ -18,6 +18,7 @@ def add_user(user: UserBase, db: Session = Depends(get_db)):
     
     db_user = User(**user.dict())
     db.add(db_user) 
+    db.commit()
     db.flush()
 
     db.refresh(db_user)
