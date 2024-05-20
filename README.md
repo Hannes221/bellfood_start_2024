@@ -2,6 +2,8 @@
 
 By CODE Atzen at START Hack 2024 in St. Gallen
 
+#1. Place in [Intel Liftoff Challenge](https://community.intel.com/t5/Blogs/Intel/We-Are-Intel/The-AI-SpeedRacers-Quest-at-Start-Hack-2024-with-Intel-Liftoff/post/1582160). @ START Hack 2024
+
 ## Introduction
 
 An App that uses AI to speak to the Bell Food Group employees and motivates them to do their jobs. The app is available in every language and made for people without technical knowledge.
