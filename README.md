@@ -2,7 +2,7 @@
 
 By CODE Atzen at START Hack 2024 in St. Gallen
 
-#1. Place in [Intel Liftoff Challenge](https://community.intel.com/t5/Blogs/Intel/We-Are-Intel/The-AI-SpeedRacers-Quest-at-Start-Hack-2024-with-Intel-Liftoff/post/1582160). @ START Hack 2024
+#1. Place in [Intel Liftoff Challenge](https://community.intel.com/t5/Blogs/Intel/We-Are-Intel/The-AI-SpeedRacers-Quest-at-Start-Hack-2024-with-Intel-Liftoff/post/1582160) @ START Hack 2024
 
 ## Introduction
 
